@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <style>
     body {
@@ -10,11 +11,14 @@
       color: #fff;
       margin: 0;
       height: 100vh;
+      min-height: 100vh;
+      box-sizing: border-box;
     }
     .login-container {
       max-width: 350px;
-      margin: 120px auto;
-      padding: 32px 28px;
+      width: 90vw;
+      margin: 10vh auto;
+      padding: 32px 5vw;
       background: rgba(30, 30, 30, 0.95);
       border-radius: 12px;
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -24,7 +28,7 @@
       text-align: center;
       margin-bottom: 24px;
       letter-spacing: 2px;
-      font-size: 1.6em;
+      font-size: 1.4em;
       font-weight: 600;
       color: #e74c3c;
       text-shadow: 0 0 8px #e74c3c44;
@@ -39,6 +43,7 @@
       color: #fff;
       font-size: 1em;
       box-shadow: 0 2px 8px #0002;
+      box-sizing: border-box;
     }
     input[type="text"]:focus, input[type="password"]:focus {
       outline: none;
@@ -70,7 +75,8 @@
     .seal {
       display: block;
       margin: 0 auto 18px auto;
-      width: 80px;
+      width: 60px;
+      max-width: 20vw;
       filter: drop-shadow(0 0 8px #e74c3c88);
     }
     .gov-label {
@@ -81,6 +87,19 @@
       letter-spacing: 1px;
       font-weight: 500;
       text-shadow: 0 0 6px #e74c3c33;
+    }
+    @media (max-width: 500px) {
+      .login-container {
+        padding: 24px 2vw;
+        max-width: 98vw;
+      }
+      h2 {
+        font-size: 1.1em;
+      }
+      .seal {
+        width: 40px;
+        max-width: 30vw;
+      }
     }
   </style>
 </head>
@@ -99,8 +118,8 @@
   <script>
     document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
+      var username = document.getElementById('username').value.trim().toLowerCase();
+      var password = document.getElementById('password').value.trim().toLowerCase();
       if (username === 'martin' && password === 'nielsen') {
         window.location.href = 'success.html';
       } else {
